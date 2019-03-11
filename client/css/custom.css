@@ -1,0 +1,25 @@
+.cst01 {
+    margin-top: -45vh;
+}
+
+.loffset {
+margin-left: 0.3em;
+}
+.txt1{
+
+    display: block;
+    font-size: 2em;
+    margin-top: -0.3em;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+
+}
+
+.btoff{
+    margin-left: 5em;
+}
+
+nav1 ul{height:50vh;}
+nav1 ul{overflow:hidden; overflow-y:scroll;}

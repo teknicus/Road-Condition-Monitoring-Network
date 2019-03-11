@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>R.C.M.N.</title>
+
+    <script src="/client/js/index.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Road Condition Monitoring Network</a>
+    </div>
+</nav>
+<br>
+
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-1" align="left">
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">person_pin_circle</i>Current Location</div>
+                <div class="collapsible-body"><span>
+                    <ul>
+                        <li><a class="waves-effect waves-light btn" onclick="l1()">Marthahalli</a></li>
+                        <br>
+                        <li><a class="waves-effect waves-light btn" onclick="l2()">Whitefield</a></li>
+                        <br>
+                        <li><a class="waves-effect waves-light btn" onclick="l3()">Indranagar</a></li>
+                   </ul>
+
+
+                </span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">blur_circular</i>Radius</div>
+                <div class="collapsible-body"><span>
+
+                    <ul>
+                        <li><a class="waves-effect waves-light btn" onclick="km1()">1Km</a></li><br>
+                        <li><a class="waves-effect waves-light btn" onclick="km2()">2Km</a></li><br>
+                        <li><a class="waves-effect waves-light btn" onclick="km5()">5Km</a></li><br>
+                    </ul>
+
+                </span></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">access_time</i>Time Interval</div>
+                <div class="collapsible-body"><span>
+
+                    <ul>
+                      <li><a class="waves-effect waves-light btn" onclick="t0()">00:00-02:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t2()">02:00-04:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t4()">04:00-06:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t6()">06:00-08:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t8()">08:00-10:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t10()">10:00-12:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t12()">12:00-14:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t14()">14:00-16:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t16()">16:00-18:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t18()">18:00-20:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t20()">20:00-22:00</a></li><br>
+                      <li><a class="waves-effect waves-light btn" onclick="t22()">22:00-00:00</a></li><br>
+                   </ul>
+
+                </span></div>
+            </li>
+        </ul>
+        <div class="col-lg-4 col-lg-offset-3">
+            <a align='center' class="waves-effect waves-light btn" onclick="send()">Apply</a>
+        </div>
+
+    </div>
+
+    <div class="col-lg-4 col-lg-offset-2" align="left">
+        <div class="card-sbr indigo lighten-4">
+            <h3 align="center">Available Passengers</h5>
+                <nav1 class="collection">
+                    <ul id="pbox">
+
+                    </ul>
+                </nav1>
+
+
+        </div>
+    </div>
+</div>
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+
+</html>
