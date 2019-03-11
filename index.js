@@ -14,6 +14,20 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var path = require('path');
 
+var  alert = require('./model/alert');
+var  ticket = require('./model/ticket');
+
+
+var dev_id = "init";
+var lat = "init";
+var long = "init";
+var amp = "init";
+
+var id = 0;
+var str = "undefined";
+const { convertCSVToArray } = require('convert-csv-to-array');
+const converter = require('convert-csv-to-array');
+
 app.use(express.static(__dirname + '/client'));
 app.use('/client', express.static(__dirname + '/client'));
 
@@ -37,7 +51,42 @@ client.on('message', function (topic, message) {
 function handleMessage(topic, message) {
 
     var msg = message.toString();
-    console.log(msg);
+    console.log('message: ' + msg);
+    //  socket.emit('passenger', 'received');
+    const arrayofObjects = convertCSVToArray(msg, {
+        separator: ',', // use the separator you use in your csv (e.g. '\t', ',', ';' ...)
+    });
+    dev_id = arrayofObjects[0][0];
+    lat = arrayofObjects[0][1];
+    long = arrayofObjects[0][2];
+    amp = arrayofObjects[0][3];
 
-    client.end()
+    id++;
+    var a = id.toString();
+    a_id = 'A' + a;
+
+    console.log('Alert ID: ' + a_id);
+    console.log('Device ID: ' + dev_id);
+    console.log('Lattitude: ' + lat);
+    console.log('Longitude: ' + long);
+    console.log('Amplitude: ' + amp);
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("RCMN");
+        var myobj = {
+            "a_id": a_id,
+            "dev_id": dev_id,
+            "latitude": lat,
+            "longitude": long,
+            "amplitude": amp
+            };
+        dbo.collection("alerts").insertOne(myobj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+            db.close();
+        });
+    });
+
+    //client.end()
 }

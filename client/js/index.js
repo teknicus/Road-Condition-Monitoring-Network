@@ -1,34 +1,50 @@
 var socket = io();
+var list_id = 0;
 
 
-socket.on('new-song', function(msg) {
+socket.on('alerts', function(msg) {
 
-        console.log('message: ' + msg);
-	
-	var trim_msg = msg.substring(0, 50);
+    console.log('message: ' + msg);
+    var trim_msg = msg.substring(0, 50);
 
-	var node = document.createElement("LI");   
-	node.classList.add("collection-item");
+    list_id++;
+    var a = list_id.toString();
+    x = 'list_item_' + a;
+    y = 'list_btn_' + a;
+    console.log('a= ' + a);
 
-	node.innerHTML = trim_msg + "<span class=\"new badge\" data-badge-caption=\"remove\" onclick=\"savelink()\"/>"                     
-	document.getElementById("sbox").appendChild(node);
+
+    var node = document.createElement("LI");
+    node.classList.add("collection-item");
+    node.setAttribute("id", x);
 
 
+    node.innerHTML = trim_msg + "<span class=\"new badge\" data-badge-caption=\"Raise Ticket\" id=" + y + " onclick=\"raise_ticket(id)\"/>"
+    document.getElementById("abox").appendChild(node);
 
 });
 
 
-function savelink() {
+socket.on('r_tickets', function(msg) {
 
-    var link = document.getElementById("link-input").value;
-    console.log(link);
-    socket.emit('vid-link', link);
-    document.getElementById("link-input").value = "";
-}
+    console.log('message: ' + msg);
+    var trim_msg = msg.substring(0, 50);
 
-function dwd() {
+    var node = document.createElement("LI");
+    node.classList.add("collection-item");
+    node.setAttribute("id", x);
 
-    console.log("Sending Download Trigger");
-    socket.emit('download', "download");
-    document.getElementById("link-input").value = "The Videos are now downloading...";
+
+    node.innerHTML = trim_msg;
+    document.getElementById("tbox").appendChild(node);
+
+});
+
+
+
+function raise_ticket(rem_id) {
+
+    var name = document.getElementById(rem_item).textContent;
+    var t_id = name.substring(0, 4);
+    socket.emit('tickets', t_id);
 }
