@@ -1,0 +1,41 @@
+{
+  "name": "road-condition-monitoring-network",
+  "version": "1.0.0",
+  "description": "A network of sensor nodes to monitor road condition and provide an end-to-end integrated solution for Road Condition Monitoring.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teknicus/Road-Condition-Monitoring-Network.git"
+  },
+  "keywords": [
+    "road",
+    "condition",
+    "monitoring",
+    "imu",
+    "sensor",
+    "mpu6050",
+    "arduino",
+    "raspberry",
+    "pi",
+    "smart",
+    "system",
+    "hackathon"
+  ],
+  "author": "The Project Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teknicus/Road-Condition-Monitoring-Network/issues"
+  },
+  "homepage": "https://github.com/teknicus/Road-Condition-Monitoring-Network#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "mongodb": "^3.1.13",
+    "mqtt": "^2.18.8",
+    "path": "^0.12.7",
+    "socket.io": "^2.2.0"
+  }
+}

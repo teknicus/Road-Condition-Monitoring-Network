@@ -1,2 +1,8 @@
-# Pot-hole-Detection-System
-The solution that we have devised suggests the deployment of a city-wide sensor network in the form of a sensor package mounted to State/City Administration owned vehicles for the detection of pot-holes.
+# Road Condition Monitoring Network
+
+Monitoring and maintenance of roads are still a pain-point for Governments and the Public Works Department. RCMN is an end-to-end integrated solution for monitoring the condition of roads and bring critical failures to the notice of the responsible personnel. The system automatically passes the raised ticket to higher authorities to ensure that the condition is maintained.
+
+#System Components:
+
+- Sensor Nodes : The system uses sensor nodes fitted to Public transport and Government vehicles. These sensor nodes comprise of  
+    - An Inertial Mea
