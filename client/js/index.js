@@ -49,11 +49,12 @@ socket.on('r_tickets', function(msg) {
 
 */
 
-function raise_ticket(rem_id) {
-
-    var name = document.getElementById(rem_item).textContent;
-    var t_id = name.substring(0, 4);
-    socket.emit('tickets', t_id);
+function raise_ticket() {
+    var node = document.createElement("LI");
+    node.classList.add("collection-item");
+    node.setAttribute("id", x);
+    node.innerHTML = "A ticket has been raised for Alert : A1";
+    document.getElementById("tbox").appendChild(node);
 }
 
 function showMap() {
