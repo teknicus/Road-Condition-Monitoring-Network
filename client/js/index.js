@@ -1,4 +1,5 @@
-var socket = io();
+//var socket = io();
+
 var list_id = 0;
 var m_index = 0;
 var lat_gl = [12.823109, 12.823109, 12.823109];
@@ -7,7 +8,7 @@ var lon_gl = [80.041021, 80.041021, 80.041021];
 var lat1 = 12.823109;
 var lon1 = 80.041021;
 
-
+/*
 socket.on('alerts', function(msg) {
 
     console.log('message: ' + msg);
@@ -46,7 +47,7 @@ socket.on('r_tickets', function(msg) {
 
 });
 
-
+*/
 
 function raise_ticket(rem_id) {
 
@@ -74,3 +75,41 @@ function showMap() {
     var marker = L.marker([lati, longi]).addTo(mymap);
 }
 
+function findAlerts() {
+    fetch('http://localhost:3000/alerts')
+        .then(
+            function(response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+
+                // Examine the text in the response.
+                response.json().then(function(data) {
+                    //console.log(data);
+                    //console.log("Pothole Detected at " + data.latitude);
+                    var datadump = JSON.stringify(data);
+                    console.log(datadump);
+
+                    var trim_msg = datadump.substring(35, 90);
+
+                    list_id++;
+                    var a = list_id.toString();
+                    x = 'list_item_' + a;
+                    y = 'list_btn_' + a;
+                    console.log('a= ' + a);
+
+
+                    var node = document.createElement("LI");
+                    node.classList.add("collection-item");
+                    node.setAttribute("id", x);
+
+
+                    node.innerHTML = trim_msg + "<span class=\"new badge\" data-badge-caption=\"Raise Ticket\" id=" + y + " onclick=\"raise_ticket(id)\"/>"
+                    document.getElementById("abox").appendChild(node);
+
+                });
+            }
+        )
+}

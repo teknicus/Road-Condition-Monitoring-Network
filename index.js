@@ -17,6 +17,8 @@ var path = require('path');
 var  alert = require('./model/alert');
 var  ticket = require('./model/ticket');
 
+var alerts = require('./routes/alert');
+app.use('/alerts', alerts);
 
 var dev_id = "init";
 var lat = "init";
@@ -88,25 +90,18 @@ function handleMessage(topic, message) {
             console.log("1 document inserted");
             db.close();
         });
-        temp = a_id;
-        temp = temp.concat(",");
-        temp = temp.concat(dev_id);
-        temp = temp.concat(",");
-        temp = temp.concat(lat);
-        temp = temp.concat(",");
-        temp = temp.concat(long);
-        temp = temp.concat(",");
-        temp = temp.concat(amp);
+                    //socket.emit('alerts', temp);
 
-        console.log("sending to WebUI" + temp);
+        });
+
+        //console.log("sending to WebUI" + temp);
         //socket.emit('alerts', temp);
 
 
 
-    });
+    }
 
     //client.end()
-}
 
 
 http.listen(3000, function(){
