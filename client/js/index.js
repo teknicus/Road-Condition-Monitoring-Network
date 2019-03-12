@@ -1,6 +1,11 @@
 var socket = io();
 var list_id = 0;
+var m_index = 0;
+var lat_gl = [12.823109, 12.823109, 12.823109];
+var lon_gl = [80.041021, 80.041021, 80.041021];
 
+var lat1 = 12.823109;
+var lon1 = 80.041021;
 
 
 socket.on('alerts', function(msg) {
@@ -51,7 +56,10 @@ function raise_ticket(rem_id) {
 }
 
 function showMap() {
+
+
     var mymap = L.map('mapid').setView([12.823109, 80.041021], 13);
+
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGVrbmljdXMiLCJhIjoiY2p0NTB5ZXZyMDFqNzQ5bzZ5ZDBodXViYyJ9.SuiIDJWFCq7kPqdXD9i67w', {
         maxZoom: 18,
@@ -60,5 +68,9 @@ function showMap() {
             'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         id: 'mapbox.streets'
     }).addTo(mymap);
-    var marker = L.marker([12.823109, 80.041021]).addTo(mymap);
+
+    var lati = 12.823109;
+    var longi = 80.041021;
+    var marker = L.marker([lati, longi]).addTo(mymap);
 }
+

@@ -31,9 +31,11 @@
   },
   "homepage": "https://github.com/teknicus/Road-Condition-Monitoring-Network#readme",
   "dependencies": {
+    "convert-csv-to-array": "^1.0.3",
     "express": "^4.16.4",
     "http": "0.0.0",
     "mongodb": "^3.1.13",
+    "mongoose": "^5.4.19",
     "mqtt": "^2.18.8",
     "path": "^0.12.7",
     "socket.io": "^2.2.0"

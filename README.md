@@ -16,9 +16,15 @@ Monitoring and maintenance of roads are still a pain-point for Governments and t
 - Once the confirmation is received, A ticket is raised to The Public-Works Department of the City to resolve the issue.
 - The system flags the location for a set time period to wait for the issue to be resolved. If the issue is not resolved, The ticket is raised to higher authorities.
     
+### Applications
+- **Government/Administrative Sector** : For ensuring regular up-keep of roads by tendered agencies
+- **Vehicle Insurance Sector** : As a Black-Box module to know the vehicle behaviour at the instance of an accident. Insurance agencies will also be able to know if road condition was the cause of the accident
+
 ### Advantages of RCMN
 - A fully automated system
 - Low cost of Implementation
 - End-to-End Integration
 - Builds on Existing Infrastructure
 - Public Transparency and Influence in City Infrastructure.
+
+
