@@ -73,7 +73,15 @@ function showMap() {
 
     var lati = 12.823109;
     var longi = 80.041021;
+
+    var lati1 = 12.834209;
+    var longi1 = 80.052121;
+
+    var lati2 = 12.844309;
+    var longi2 = 80.062221;
     var marker = L.marker([lati, longi]).addTo(mymap);
+    var marker = L.marker([lati1, longi1]).addTo(mymap);
+    var marker = L.marker([lati2, longi2]).addTo(mymap);
 }
 
 function findAlerts() {
