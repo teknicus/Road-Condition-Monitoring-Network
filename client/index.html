@@ -4,16 +4,24 @@
 <head>
     <title>R.C.M.N.</title>
 
-    <script src="/client/js/index.js"></script>
+
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta charset="utf-8">
 
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="js/index.js"></script>
 
 </head>
 
@@ -43,8 +51,10 @@
         <div class="card-sbr indigo lighten-4">
             <h3 align="center">Map Plot</h5>
 
-
-
+                <div id="mapid" style="width: 600px; height: 400px;"></div>
+                    <div class="row" align="center">
+                        <a class="waves-effect waves-light btn btoff" onclick="showMap()">Refresh Map</a>
+                    </div>
         </div>
     </div>
 </div>

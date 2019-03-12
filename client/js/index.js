@@ -2,6 +2,7 @@ var socket = io();
 var list_id = 0;
 
 
+
 socket.on('alerts', function(msg) {
 
     console.log('message: ' + msg);
@@ -47,4 +48,17 @@ function raise_ticket(rem_id) {
     var name = document.getElementById(rem_item).textContent;
     var t_id = name.substring(0, 4);
     socket.emit('tickets', t_id);
+}
+
+function showMap() {
+    var mymap = L.map('mapid').setView([12.823109, 80.041021], 13);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGVrbmljdXMiLCJhIjoiY2p0NTB5ZXZyMDFqNzQ5bzZ5ZDBodXViYyJ9.SuiIDJWFCq7kPqdXD9i67w', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox.streets'
+    }).addTo(mymap);
+    var marker = L.marker([12.823109, 80.041021]).addTo(mymap);
 }
