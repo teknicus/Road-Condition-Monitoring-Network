@@ -7,9 +7,10 @@ const char* password = "youshallnotpass";               //WiFi Password
 const char* mqtt_server = "192.168.43.83";              //MQTT server IP Address
 
 int potHole_id = 0;                                     //potHole_id is the variable which stores the number or ID of the pothole
-String var, var2, var3, var4, var5;                     //Temporary variables to store the values of potHole_ID, latitude, longitude, and the delta of change in accelerometer in Z-Axis
-int codeLen =17;                                        //length of array which stores the above data which is to be sent
-char charac[18];                                        //character array which stores the above data which is to be sent
+String var1, var2, var3, var4, var5; //Temporary variables to store the values of potHole_ID, latitude, longitude, and the delta of change in accelerometer in Z-Axis
+int codeLen =27;                                        //length of array which stores the above data which is to be sent
+char charac[28];                                        //character array which stores the above data which is to be sent
+String post= "";
 
 // MPU6050 Slave Device Address
 const uint8_t MPU6050SlaveAddress = 0x68;
@@ -162,18 +163,20 @@ void loop() {
     Serial.print("Pothole Detected");
     delay(1000);
 
-    var = String(potHole_id);        //the temp variables which stores the datas which are merged into one array to be sent
-    var2 = String(lat[potHole_id]);
+    var1 = String(potHole_id);        //the temp variables which stores the datas which are merged into one array to be sent
+    var2 = String(lat[potHole_id],4);
     var5 = ","; 
-    var3 = String(lon[potHole_id]);
+    var3 = String(lon[potHole_id],4);
     var4 = String(d2);
-    //post = var+","var2+","var3+","var4;
-    post.concat(var);                //concat the datas into a single array
+  
+    post.concat(var1);                //concat the datas into a single array
+    post.concat(var5);
     post.concat(var2);
     post.concat(var5);
     post.concat(var3);
+    post.concat(var5);
     post.concat(var4);
-    post.toCharArray(charac, codeLen + 4);     //the data is sent to charac
+    post.toCharArray(charac, codeLen + 6);     //the data is sent to charac
     client.publish("message", charac);         //the data stored in charac is sent 
     potHole_id++;                              //goes to the next pot-hole ID
   }
