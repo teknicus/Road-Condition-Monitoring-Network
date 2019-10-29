@@ -37,7 +37,7 @@
     "http": "0.0.0",
     "method-override": "^3.0.0",
     "mongodb": "^3.1.13",
-    "mongoose": "^5.4.19",
+    "mongoose": "^5.7.5",
     "mqtt": "^2.18.8",
     "path": "^0.12.7",
     "socket.io": "^2.2.0"
